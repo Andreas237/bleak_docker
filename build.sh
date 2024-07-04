@@ -1,5 +1,9 @@
 #!/bin/bash
 
+VENV=bleak_venv
+
+
+
 if [[ "$EUID" -ne 0 ]]; then
     echo "${0} must run this script with root permissions, e.g. 'sudo'"
     exit 1
@@ -36,6 +40,17 @@ set_python() {
     python3 -m venv bleak_venv
     source bleak_venv/bin/activate
     pip3 install -r requirements.txt
+
+
+    if [[ $(pip3 freeze | grep "bluetooth-adapter") -ne 0 ]]; then
+        git clone https://github.com/Bluetooth-Devices/bluetooth-adapters.git
+        pushd bluetooth-adapters
+        python3 setup.py install
+        popd
+        rm -rf bluetooth-adapters/
+    fi
+
+    sudo chmod -R +555 ${VENV} 
 }
 
 
