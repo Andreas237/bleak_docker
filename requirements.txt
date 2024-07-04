@@ -1,2 +1,9 @@
-bleak
-bluetooth-adapters
+# Python3.10.0
+aiooui==0.1.6
+async-timeout==4.0.3
+bleak==0.22.2
+bluetooth-adapters==0.19.3
+dbus-fast==2.22.1
+typing_extensions==4.12.2
+uart-devices==0.1.0
+usb-devices==0.4.5
