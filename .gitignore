@@ -124,7 +124,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
-bleak_venv/
+**bleak_venv/
 env/
 venv/
 ENV/
