@@ -30,3 +30,17 @@ if [ ! -f /usr/lib/firmware/rtl_bt/rtl8761bu_config.bin ]; then
     fi
 
 fi
+
+
+set_python() {
+    python3 -m venv bleak_venv
+    source bleak_venv/bin/activate
+    pip3 install -r requirements.txt
+}
+
+
+set_python
+
+
+
+echo "successfully ran ${0}"
